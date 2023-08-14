@@ -9,12 +9,9 @@ import javax.persistence.Id;
 
 @Getter
 @Entity
-public class User {
+public class Agency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String email;
-    private String username;
-    private String firstName;
-    private String lastName;
+    private String name;
 }
