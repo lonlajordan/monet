@@ -2,10 +2,9 @@ package com.gie.monet.models;
 
 import lombok.Getter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -14,4 +13,8 @@ public class Bank {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @OneToMany(mappedBy = "bank", orphanRemoval = true)
+    private List<Agency> agencies = new ArrayList<>();
+    @OneToMany(mappedBy = "bank", orphanRemoval = true)
+    private List<Product> products = new ArrayList<>();
 }
